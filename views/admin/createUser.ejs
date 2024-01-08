@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+</head>
+<body>
+
+    <h2>Create User</h2>
+
+    <% if (messages && messages.error && messages.error.length > 0) { %>
+        <div style="color: red;">
+            <% messages.error.forEach(error => { %>
+                <p><%= error %></p>
+            <% }); %>
+        </div>
+    <% } %>
+
+    <form id="createUserForm" action="/admin/createUser" method="post">
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username" value="<%= typeof username !== 'undefined' ? username : '' %>" required>
+        
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="<%= typeof password !== 'undefined' ? password : '' %>" required>
+        <br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= typeof phone !== 'undefined' ? phone : '' %>">
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>">
+        <br><br>
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" value="<%= typeof role !== 'undefined' ? role : '' %>">
+        <br><br>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="<%= typeof status !== 'undefined' ? status : '' %>">
+        <br><br>
+
+        <button type="submit">Create User</button>
+    </form>
+
+</body>
+</html>
